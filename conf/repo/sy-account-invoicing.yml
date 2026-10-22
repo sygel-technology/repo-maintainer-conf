@@ -1,0 +1,15 @@
+sy-account-invoicing:
+  name: Odoo account and invoicing addons
+  description: ""
+  psc: Management
+  branches:
+    - "12.0"
+    - "13.0"
+    - "14.0"
+    - "15.0"
+    - "16.0"
+    - "17.0"
+    - "18.0"
+    - "19.0"
+  new_branch_not_empty: false
+  default_branch: "18.0"
