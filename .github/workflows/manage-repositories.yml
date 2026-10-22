@@ -7,7 +7,7 @@ on:
       - "sygel-repo-maintainer-conf"
 
 jobs:
-  test:
+  update_repositories:
     runs-on: ubuntu-latest
     permissions:
       contents: write
