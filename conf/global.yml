@@ -1,9 +1,6 @@
-org: OCA
-title: OCA Development Structure
-owner: board
-template: git+https://github.com/OCA/oca-addons-repo-template
-team_maintainers:
-  - core-maintainers
-maintainers:
-  - "oca-transbot"
-  - "OCA-git-bot"
+# ¡NO aplicar sin completar los marcadores PENDIENTE y verificar roles reales!
+owner: Management
+template: git+https://github.com/OCA/oca-addons-repo-template.git
+team_maintainers: []
+# No se asignan maintainers globales por defecto.
+maintainers: []

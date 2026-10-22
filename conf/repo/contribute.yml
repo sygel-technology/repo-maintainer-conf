@@ -1,7 +1,0 @@
-contribute-md-template:
-  branches: []
-  category: Contribute
-  default_branch: master
-  name: The template contribute.md for oss projects
-  psc: board
-  psc_rep: board

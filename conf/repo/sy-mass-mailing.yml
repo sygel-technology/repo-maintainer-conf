@@ -1,0 +1,8 @@
+sy-mass-mailing:
+  name: Sygel Mass Mailing
+  description: Odoo mass mailing
+  category: Marketing
+  psc: Management
+  branches:
+    - "18.0"
+  new_branch_not_empty: false

@@ -1,9 +1,0 @@
-maintainer-tools:
-  branches: []
-  category: Maintainer
-  default_branch: master
-  name:
-    Odoo maintainers tools & conventions for oca members which evaluate and maintain
-    repositories.
-  psc: community-maintainers
-  psc_rep: community-maintainers-psc-representative
