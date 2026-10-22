@@ -5,4 +5,5 @@ sy-mass-mailing:
   psc: Management
   branches:
     - "18.0"
+    - "19.0"
   new_branch_not_empty: false

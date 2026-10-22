@@ -1,6 +1,5 @@
-# ¡NO aplicar sin completar los marcadores PENDIENTE y verificar roles reales!
 owner: Management
-template: git+https://github.com/OCA/oca-addons-repo-template.git
+template: git+https://github.com/sygel-technology/oca-addons-repo-template.git
 team_maintainers: []
 # No se asignan maintainers globales por defecto.
 maintainers: []

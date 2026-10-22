@@ -1,33 +1,46 @@
-name: Sygel - gestionar repositorios (piloto)
+
+name: Update repos
 
 on:
-  workflow_dispatch:
-    inputs:
-      confirmacion:
-        description: "Escribe APLICAR_SYGEL_PILOTO para autorizar este mantenimiento"
-        required: true
-        type: string
-
-permissions:
-  contents: read
+  push:
+    branches:
+      - "sygel-repo-maintainer-conf"
 
 jobs:
-  gestionar:
-    if: ${{ github.repository_owner == 'sygel-technology' && inputs.confirmacion == 'APLICAR_SYGEL_PILOTO' }}
+  test:
     runs-on: ubuntu-latest
-    environment: repo-maintainer-production
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
     steps:
-      - uses: actions/checkout@v6
-      - name: Instalar herramientas
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+
+      - name: Install requirements
+        run: pip install https://github.com/OCA/repo-maintainer/archive/master.zip
+
+      - name: Configure Git
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install PyYAML
-          python -m pip install 'git+https://github.com/OCA/repo-maintainer.git'
-      - name: Bloquear configuraciones incompletas
-        run: python scripts/validate_conf.py
-      - name: Sincronizar SOLO el piloto
+          git config --global user.name "Sygel-bot"
+          git config --global user.email "sy-bot@sygel.es"
+
+      - name: Manage repositories
         env:
-          GITHUB_TOKEN: ${{ secrets.ORG_TOKEN }}
+          GH_TOKEN: ${{ secrets.ORG_TOKEN }}
         run: |
-          test -n "$GITHUB_TOKEN" || { echo "Falta ORG_TOKEN" >&2; exit 1; }
-          oca-repo-manage --org sygel-technology --conf-dir ./conf
+          gh auth setup-git --hostname github.com --force
+          oca-repo-manage \
+            --org "$GITHUB_REPOSITORY_OWNER" \
+            --token "$GH_TOKEN" \
+            --conf-dir ./conf
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update checksum
+          file_pattern: "conf/checksum.yml"
+          commit_user_name: Sygel-bot
+          commit_user_email: sy-bot@sygel.es
+          commit_author: Sygel-bot <sy-bot@sygel.es>
