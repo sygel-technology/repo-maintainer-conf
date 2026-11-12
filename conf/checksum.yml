@@ -10,6 +10,7 @@ repo/sy-beta-modules.yml: fab440d966872d954a4d000862cbc6d7
 repo/sy-calendar.yml: 1c7f47dd216729e8486a95cda6b20c9b
 repo/sy-commission.yml: 78b5db4181c7d0e7788263760bd0f7a4
 repo/sy-community-data-files.yml: 83f89c26ca7670e9a2a697adc57ba3ec
+repo/sy-contract.yml: c432eda7bbd27fb77d87ba4bde5c0e0c
 repo/sy-credit-control.yml: 33b02e337af47ad17b9ba7fa99460820
 repo/sy-crm.yml: 401eb81013810611792adb89e8127898
 repo/sy-delivery-carrier.yml: 30220af0db8d184986bdd29813d2b7c4
